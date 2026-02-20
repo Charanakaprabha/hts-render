@@ -1,0 +1,103 @@
+.specialized {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.spec-card {
+    background: var(--c-primary);
+    border: none;
+    border-radius: 20px;
+    padding: 50px 2px 2px 2px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.spec-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.2);
+}
+
+/* Violet top section: absolutely positioned like SuccessStories header */
+.spec-card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 1.5rem;
+}
+
+.spec-header-icon {
+    color: rgba(255, 255, 255, 0.95);
+    flex-shrink: 0;
+}
+
+.spec-header-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+/* White inner content card - all 4 corners rounded like story-card-content */
+.spec-card-content {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2rem;
+    flex: 1;
+    text-align: left;
+}
+
+.spec-icon {
+    color: var(--c-primary);
+    margin-bottom: 1rem;
+}
+
+/* spec-subtitle now sits directly under the header */
+.spec-subtitle {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.spec-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+
+.spec-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+
+.spec-features li::before {
+    content: "•";
+    color: var(--c-primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}

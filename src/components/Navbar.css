@@ -1,0 +1,262 @@
+/* ── Base navbar ────────────────────────────────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+}
+
+/* ── ROW 1: Top bar ─────────────────────────────────────────── */
+.navbar-top {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0;
+}
+
+.navbar-top-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+/* Utility buttons (Search, Globe, Contact) */
+.navbar-utility {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    color: #374151;
+    opacity: 0.75;
+    transition: opacity 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.icon-btn:hover {
+    opacity: 1;
+    color: var(--c-primary);
+}
+
+.contact-btn {
+    padding: 7px 18px;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+}
+
+/* ── ROW 2: Nav links bar ───────────────────────────────────── */
+.navbar-bottom {
+    padding: 0;
+    background: #ffffff;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: stretch;
+    height: 44px;
+}
+
+/* Vertical divider between nav items */
+.nav-divider {
+    width: 1px;
+    background: #e5e7eb;
+    align-self: stretch;
+    margin: 8px 0;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #374151;
+    padding: 0 1.1rem;
+    height: 100%;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+/* Nav link turns violet on hover */
+.nav-item:hover .nav-link {
+    background: var(--c-primary);
+    color: #ffffff;
+}
+
+.nav-item:hover .nav-link .dropdown-icon {
+    opacity: 1;
+}
+
+.dropdown-icon {
+    transition: transform 0.2s;
+    opacity: 0.7;
+}
+
+.nav-item:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* ── Dropdown menu ──────────────────────────────────────────── */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--c-primary);
+    color: #ffffff;
+    min-width: 210px;
+    padding: 0.6rem;
+    border-radius: 0;
+    box-shadow: 0 12px 32px rgba(91, 33, 182, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 200;
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    transition: background 0.15s, color 0.15s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+/* What We Do: 3 columns */
+.dropdown-menu.grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 540px;
+    gap: 2px;
+}
+
+/* Industries: 2 columns */
+.dropdown-menu.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-width: 360px;
+    gap: 2px;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+.mobile-toggle {
+    display: none;
+    color: #374151;
+    padding: 4px;
+}
+
+@media (max-width: 1024px) {
+    .navbar-bottom {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-btn {
+        display: none;
+    }
+
+    /* Mobile fullscreen nav */
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        padding: 80px 1.5rem 2rem;
+        z-index: 999;
+        overflow-y: auto;
+        gap: 0;
+    }
+
+    .nav-divider {
+        display: none;
+    }
+
+    .nav-item {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #f3f4f6;
+        padding: 0.75rem 0;
+    }
+
+    .nav-item:hover::after {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-top: none;
+        border-left: 2px solid var(--c-primary);
+        margin-top: 0.5rem;
+        padding-left: 0.5rem;
+        background: transparent;
+    }
+
+    .dropdown-item {
+        color: #6b7280;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}

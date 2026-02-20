@@ -1,0 +1,125 @@
+.stories {
+    background-color: var(--c-light);
+}
+
+.stories .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.view-all-link {
+    color: var(--c-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+}
+
+.view-all-link:hover {
+    color: var(--c-primary-hover);
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Nested card style - matches Specialized Services */
+.story-card {
+    background: var(--c-primary);
+    border: none;
+    border-radius: 20px;
+    padding: 50px 2px 2px 2px;
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.3);
+}
+
+/* Violet header area (the peeking top portion) */
+.story-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: absolute;
+    /* Positioned inside the violet top portion */
+}
+
+/* We use a trick: put the header inside the container before the white card */
+.story-card {
+    position: relative;
+}
+
+.story-card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 1.5rem;
+}
+
+.story-header-icon {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.story-header-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* White inner content card */
+.story-card-content {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--c-dark);
+    line-height: 1.4;
+}
+
+.story-description {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.story-cta {
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--c-primary);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.story-cta:hover {
+    color: var(--c-primary-hover);
+}

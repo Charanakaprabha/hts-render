@@ -1,0 +1,32 @@
+.intro {
+    background: #5B21B6;
+    padding-bottom: 2rem;
+}
+
+/* WHAT WE DO — plain dark color (no gradient) */
+.intro .section-title {
+    color: #000000;
+    -webkit-text-fill-color: #000000;
+    margin-bottom: 1.5rem;
+    background: none;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+}
+
+.intro-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #e9d5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+}
