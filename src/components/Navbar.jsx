@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Globe, ChevronDown, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, Menu, X, Phone } from 'lucide-react';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -26,13 +26,7 @@ export const Navbar = () => {
                 { name: 'Data Science', href: '#data-science-analytics' },
                 { name: 'Automation', href: '#automation-intelligent-rpa' },
                 { name: 'Web Development', href: '#web-development' },
-                { name: 'Digital Marketing', href: '#digital-marketing-growth' }
-            ]
-        },
-        {
-            name: 'Specialized Services',
-            href: '#specialized-services',
-            dropdown: [
+                { name: 'Digital Marketing', href: '#digital-marketing-growth' },
                 { name: 'IT Consulting', href: '#it-consulting-strategy' },
                 { name: 'Staffing & Talent', href: '#staffing-talent-solutions' },
                 { name: 'Product Development', href: '#product-development' }
@@ -53,22 +47,19 @@ export const Navbar = () => {
             ]
         },
         {
-            name: 'Insights',
-            href: '#insights',
-            dropdown: [
-                { name: 'Generative AI in Enterprise', href: '#the-future-of-generative-ai-in-enterprise' },
-                { name: 'Migrating Legacy Systems', href: '#migrating-legacy-systems-a-strategic-guide' },
-                { name: 'Closing Tech Skills Gap', href: '#closing-the-tech-skills-gap-in-2025' }
-            ]
+            name: 'Who We Are',
+            href: '#who-we-are',
+            dropdown: []
+        },
+        {
+            name: 'Success Stories',
+            href: '#success-stories',
+            dropdown: []
         },
         {
             name: 'Careers',
-            href: '#success-stories',
-            dropdown: [
-                { name: 'Cloud Infrastructure Scale', href: '#global-retailer-scales-cloud-infrastructure' },
-                { name: 'Healthcare Data Security', href: '#healthcare-provider-secures-patient-data' },
-                { name: 'Fintech Product Launch', href: '#fintech-startup-accelerates-product-launch' }
-            ]
+            href: '#careers',
+            dropdown: []
         },
     ];
 
@@ -88,18 +79,16 @@ export const Navbar = () => {
                 <div className="container navbar-top-inner">
                     {/* Logo / Brand */}
                     <div className="navbar-logo">
-                        <a href="#" onClick={scrollToTop}>
-                            <img src="/src/assets/HS_LOGO.png" alt="Halftone Systems" style={{ height: '48px', width: 'auto' }} />
-                            <span className="brand-text">HALFTONE SYSTEMS</span>
+                        <a href="#" className="logo-link" onClick={scrollToTop}>
+                            <img src="/src/assets/HS_LOGO.png" alt="Halftone Logo" className="logo-img hs-logo" />
+                            <img src="/src/assets/name.png" alt="Halftone Systems" className="logo-img name-img" />
                         </a>
                     </div>
 
-                    {/* Utility: Search, Globe, Contact + Mobile toggle */}
+                    {/* Utility: Contact + Mobile toggle */}
                     <div className="navbar-utility">
-                        <button className="icon-btn" aria-label="Search"><Search size={18} /></button>
-                        <button className="icon-btn" aria-label="Language"><Globe size={18} /></button>
-                        <a href="#contact" className="btn btn-primary contact-btn" onClick={handleLinkClick}>
-                            <Phone size={14} style={{ marginRight: '6px' }} /> Contact Us
+                        <a href="#contact" className="contact-btn" onClick={handleLinkClick}>
+                            Contact Us
                         </a>
                         <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

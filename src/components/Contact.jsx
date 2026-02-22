@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
 import './Contact.css';
 
@@ -76,23 +77,48 @@ export const Contact = () => {
         { country: "UK", flag: "🇬🇧", label: "Europe" }
     ];
 
+    const fadeUpVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+        }
+    };
+
     return (
         <section id="contact" className="contact section-padding">
             <div className="container">
-                <div className="section-header text-center">
+                <motion.div
+                    className="section-header text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={fadeUpVariants}
+                >
                     <p className="section-subtitle-small">● WE'RE READY TO CONNECT ●</p>
                     <h2 className="section-title section-title-dark">Let's Start a Conversation.</h2>
                     <p className="contact-intro">
                         Whether you have a bold vision, a complex challenge, or simply want to explore what's possible — our team is here, ready to listen and ready to deliver.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="contact-wrapper">
-                    <div className="contact-info">
+                <motion.div
+                    className="contact-wrapper"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                >
+                    <motion.div className="contact-info" variants={fadeUpVariants}>
                         <h3 className="info-heading">─── CONTACT INFORMATION</h3>
                         <h2 className="info-title">Reach Out to Us</h2>
 
-                        <div className="info-block">
+                        <div className="info-block glass-card">
                             <div className="info-icon"><Mail size={24} /></div>
                             <div>
                                 <h4>EMAIL US</h4>
@@ -101,7 +127,7 @@ export const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="info-block">
+                        <div className="info-block glass-card">
                             <div className="info-icon"><MapPin size={24} /></div>
                             <div>
                                 <h4>OFFICE HEADQUARTERS</h4>
@@ -113,40 +139,37 @@ export const Contact = () => {
                                 <p className="info-note">Located in the heart of Hyderabad's premier business district — Banjara Hills.</p>
                             </div>
                         </div>
+                    </motion.div>
 
-                        <div className="info-block">
-                            <div className="info-icon"><Clock size={24} /></div>
-                            <div>
-                                <h4>BUSINESS HOURS</h4>
-                                <div className="hours-row"><span>Monday – Friday</span> <span>9:00 AM – 6:30 PM IST</span></div>
-                                <div className="hours-row"><span>Saturday</span> <span>10:00 AM – 2:00 PM IST</span></div>
-                                <div className="hours-row"><span>Sunday</span> <span>Closed</span></div>
-                                <p className="info-note">For urgent global enquiries, email us anytime — we monitor critical requests around the clock across all time zones.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="contact-form-wrapper">
+                    <motion.div className="contact-form-wrapper glass-card" variants={fadeUpVariants}>
                         <h3 className="info-heading">─── SEND A MESSAGE</h3>
                         <ContactForm />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
-                <div className="global-presence text-center">
-                    <h3 className="info-heading">─── GLOBAL PRESENCE</h3>
-                    <h2 className="section-title section-title-dark text-center" style={{ fontSize: '2.5rem' }}>A Global Reach, A Local Touch</h2>
-                    <p className="presence-desc">Serving clients across four countries with the precision of a trusted partner and the power of an international firm.</p>
+                <motion.div
+                    className="global-presence text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={containerVariants}
+                >
+                    <motion.div variants={fadeUpVariants}>
+                        <h3 className="info-heading">─── GLOBAL PRESENCE</h3>
+                        <h2 className="section-title section-title-dark text-center" style={{ fontSize: '2.5rem' }}>A Global Reach, A Local Touch</h2>
+                        <p className="presence-desc">Serving clients across four countries with the precision of a trusted partner and the power of an international firm.</p>
+                    </motion.div>
 
                     <div className="locations-grid">
                         {locations.map((loc, i) => (
-                            <div key={i} className="location-card">
+                            <motion.div key={i} className="location-card glass-card" variants={fadeUpVariants}>
                                 <span className="flag">{loc.flag}</span>
                                 <h4>{loc.country}</h4>
                                 <p>{loc.label}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

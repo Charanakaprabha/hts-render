@@ -1,0 +1,180 @@
+.success-stories-section {
+    position: relative;
+    background-color: #0A192F;
+    color: #FFFFFF;
+    padding: 100px 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    z-index: 1;
+}
+
+.ss-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.ss-header-block {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.ss-section-title {
+    color: #00D4FF;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.ss-section-subtitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.ss-vision-desc {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Bento Grid System */
+.ss-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .ss-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ss-bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.ss-bento-item {
+    display: flex;
+    height: 100%;
+}
+
+/* Glass Card styling */
+.ss-glass-card {
+    background: rgba(10, 25, 47, 0.6);
+    /* Slightly darker, deeper glass */
+    background-image: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.ss-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.ss-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ss-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+}
+
+.ss-card-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    margin: 0 0 2rem 0;
+    flex-grow: 1;
+}
+
+.ss-card-footer {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Glowing Pill / Badge */
+.ss-glowing-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.ss-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+/* Tailwind-style Utility Grid Classes */
+@media (min-width: 768px) {
+    .md\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+
+    .md\:col-span-3 {
+        grid-column: span 3 / span 3;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:col-span-1 {
+        grid-column: span 1 / span 1;
+    }
+
+    .lg\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+
+    .lg\:col-span-3 {
+        grid-column: span 3 / span 3;
+    }
+}

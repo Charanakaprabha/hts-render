@@ -26,11 +26,51 @@
     justify-content: space-between;
 }
 
-.navbar-logo a {
+.navbar-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.logo-img {
+    height: 48px;
+    width: auto;
+}
+
+.hs-logo {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.name-img {
+    margin-left: 0;
+}
+
+/* Hover underline effect */
+.logo-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--c-primary, #6366f1);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.logo-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .brand-text {
@@ -64,9 +104,20 @@
 
 .contact-btn {
     padding: 7px 18px;
-    font-size: 0.88rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
+    color: #1f2937;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration-color 0.2s;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+}
+
+.contact-btn:hover {
+    color: #000000;
+    text-decoration-color: #000000;
 }
 
 /* ── ROW 2: Nav links bar ───────────────────────────────────── */

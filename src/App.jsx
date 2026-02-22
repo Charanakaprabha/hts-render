@@ -4,9 +4,9 @@ import {
   Intro, WhyChoose, TechSuite, SpecializedServices,
   Impact, Industries
 } from './components/WhatWeDo';
+import { WhoWeAre } from './components/WhoWeAre';
 import { SuccessStories } from './components/SuccessStories';
 import { Partnerships } from './components/Partnerships';
-import { Insights } from './components/Insights';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { useScrollReveal } from './hooks/useScrollReveal';
@@ -24,7 +24,7 @@ function App() {
       <SpecializedServices />
       <Impact />
       <Industries />
-      <Insights />
+      <WhoWeAre />
       <SuccessStories />
       <Partnerships />
       <Contact />

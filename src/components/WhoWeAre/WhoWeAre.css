@@ -1,0 +1,422 @@
+.who-we-are-section {
+    position: relative;
+    background-color: #0A192F;
+    color: #FFFFFF;
+    padding: 100px 0;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    z-index: 1;
+    /* Ensure section sits correctly in stack */
+}
+
+/* Three.js Background Container */
+.who-we-are-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.who-we-are-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* General Typography & Accents */
+.wa-accent {
+    color: #00D4FF;
+}
+
+.wa-section-title {
+    color: #00D4FF;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-top: 6rem;
+    margin-bottom: 0.5rem;
+}
+
+.wa-section-subtitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.wa-glass-card {
+    background: #0A192F;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Core Narrative */
+.wa-core-narrative {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+}
+
+.wa-headline {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.wa-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* Metrics Grid */
+.wa-metrics-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+    flex-wrap: wrap;
+}
+
+.wa-metric-card {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.wa-metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #00D4FF;
+    margin: 0 0 0.5rem 0;
+}
+
+.wa-metric-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* Divider */
+.wa-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    margin: 4rem 0;
+}
+
+/* Founder Focus */
+.wa-founder-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.wa-founder-text {
+    flex: 1.2;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+.wa-founder-text p {
+    margin-bottom: 1.5rem;
+}
+
+.wa-founder-quote-box {
+    flex: 1;
+    border-left: 4px solid #00D4FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Center text */
+}
+
+.wa-founder-image-container {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    /* Make it a circle */
+    overflow: hidden;
+    border: 3px solid rgba(0, 212, 255, 0.5);
+    /* Blue glowing border */
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+    /* Soft glow behind image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    /* Fallback */
+}
+
+.wa-founder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure image covers the circle without distortion */
+    object-position: center top;
+    /* Focus on the face/top if cropped */
+}
+
+.wa-founder-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.wa-founder-title {
+    font-size: 0.85rem;
+    color: #00D4FF;
+    margin: 0.5rem 0 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.wa-quote {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.wa-industries-list {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.wa-list-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #00D4FF;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.wa-list-items {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+}
+
+/* Timeline */
+.wa-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wa-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background: rgba(0, 212, 255, 0.2);
+}
+
+.wa-timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 3rem;
+}
+
+.wa-timeline-dot {
+    position: absolute;
+    left: 14px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #00D4FF;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.wa-timeline-content h5 {
+    font-size: 1.25rem;
+    color: #00D4FF;
+    margin: 0 0 0.5rem 0;
+}
+
+.wa-timeline-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Vision Pillars Grid */
+.wa-vision-desc {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+}
+
+.wa-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.wa-pillar-card {
+    padding: 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.wa-pillar-card:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.wa-pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.wa-pillar-id {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgba(0, 212, 255, 0.3);
+}
+
+.wa-pillar-icon {
+    font-size: 2rem;
+}
+
+.wa-pillar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #FFFFFF;
+}
+
+.wa-pillar-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Success Stories Grid */
+.wa-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.wa-story-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wa-story-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.wa-story-icon {
+    font-size: 1.5rem;
+}
+
+.wa-story-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.wa-story-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.wa-story-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00D4FF;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .wa-headline {
+        font-size: 2.8rem;
+    }
+
+    .wa-founder-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .wa-pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wa-stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .wa-headline {
+        font-size: 2.2rem;
+    }
+
+    .wa-section-subtitle {
+        font-size: 2rem;
+    }
+
+    .wa-metrics-grid {
+        flex-direction: column;
+    }
+
+    .wa-timeline::before {
+        left: 10px;
+    }
+
+    .wa-timeline-item {
+        padding-left: 40px;
+    }
+
+    .wa-timeline-dot {
+        left: 4px;
+    }
+
+    .wa-stories-grid {
+        grid-template-columns: 1fr;
+    }
+}
