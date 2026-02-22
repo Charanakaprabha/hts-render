@@ -2,7 +2,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import {
   Intro, WhyChoose, TechSuite, SpecializedServices,
-  Impact, Industries
+  Impact, Industries, WhatWeDoTimeline
 } from './components/WhatWeDo';
 import { WhoWeAre } from './components/WhoWeAre';
 import { SuccessStories } from './components/SuccessStories';
@@ -19,9 +19,11 @@ function App() {
       <Navbar />
       <Hero />
       <Intro />
-      <WhyChoose />
-      <TechSuite />
-      <SpecializedServices />
+      <WhatWeDoTimeline>
+        <WhyChoose />
+        <TechSuite />
+        <SpecializedServices />
+      </WhatWeDoTimeline>
       <Impact />
       <Industries />
       <WhoWeAre />

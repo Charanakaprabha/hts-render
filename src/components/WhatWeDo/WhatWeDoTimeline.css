@@ -1,0 +1,64 @@
+.wwd-timeline-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.wwd-timeline-track-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: max(40px, calc(50% - 560px));
+    width: 4px;
+    z-index: 10;
+}
+
+.wwd-timeline-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.wwd-timeline-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--c-primary);
+    border-radius: 2px;
+    transform-origin: top center;
+}
+
+/* Numbered Circles for the Sections */
+.wwd-step-circle {
+    position: absolute;
+    left: max(40px, calc(50% - 560px));
+    top: 50px;
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--c-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    z-index: 12;
+    transform: translateX(-50%) translateY(30%);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Ensure content doesn't overlap the timeline on desktop and mobile */
+.wwd-timeline-content .container {
+    padding-left: 90px;
+}
+
+@media (max-width: 1240px) {
+    .wwd-timeline-content .container {
+        padding-left: 100px;
+    }
+}

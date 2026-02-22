@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Factory, Zap, ShieldCheck, TrendingUp, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './WhyChoose.css';
 
 const ReasonCard = ({ icon: Icon, title, desc }) => (
@@ -47,10 +48,18 @@ export const WhyChoose = () => {
     ];
 
     return (
-        <section className="why-choose section-padding bg-dark-alt">
+        <section className="why-choose section-padding bg-dark-alt" style={{ position: 'relative' }}>
+            <motion.div
+                className="wwd-step-circle"
+                initial={{ backgroundColor: 'transparent', color: 'var(--c-primary)' }}
+                whileInView={{ backgroundColor: 'var(--c-primary)', color: '#ffffff' }}
+                viewport={{ once: false, margin: "2000px 0px -50% 0px" }}
+            >
+                1
+            </motion.div>
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title section-title-dark">WHY CHOOSE HALFTONE SYSTEMS?</h2>
+                    <h3 className="section-title section-title-dark" style={{ fontSize: '2.5rem' }}>WHY CHOOSE HALFTONE SYSTEMS?</h3>
                     <p className="section-subtitle">Six reasons why industry leaders trust us to power their digital transformation.</p>
                 </div>
                 <div className="reasons-grid">

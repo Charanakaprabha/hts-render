@@ -1,12 +1,12 @@
 .intro {
-    background: #5B21B6;
+    background: var(--c-primary);
     padding-bottom: 2rem;
 }
 
-/* WHAT WE DO — plain dark color (no gradient) */
+/* WHAT WE DO — plain light color (no gradient) */
 .intro .section-title {
-    color: #000000;
-    -webkit-text-fill-color: #000000;
+    color: #FFFFFF;
+    -webkit-text-fill-color: #FFFFFF;
     margin-bottom: 1.5rem;
     background: none;
     background-clip: unset;

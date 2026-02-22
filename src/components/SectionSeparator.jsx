@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const SectionSeparator = ({ fill = "#ffffff", height = "60px", position = "bottom", style = {} }) => {
     // A smooth quadratic bezier curve that goes up in the center
@@ -106,12 +107,27 @@ export const SectionSeparator = ({ fill = "#ffffff", height = "60px", position =
     );
 };
 
-// Re-structuring correctly for a clean "Centre Curve Up"
-// We want the NEXT section's color to form a hill in the center of the CURRENT section's bottom.
-
 export const CurveSeparator = ({ fill = "#ffffff", height = "80px", inverted = false }) => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    // Control point Y interpolates from straight (0 height initially) to curve
+    const controlY = useTransform(scrollYProgress, [0, 0.5, 1], [0, 120, 120]);
+
+    // Path 'd' string transformations
+    const pathD = useTransform(controlY, y => {
+        if (inverted) {
+            return `M0,120 Q600,${120 - y} 1200,120 V120 H0 Z`;
+        } else {
+            return `M0,0 Q600,${y} 1200,0 V120 H0 Z`;
+        }
+    });
+
     return (
-        <div style={{
+        <div ref={containerRef} style={{
             position: 'absolute',
             bottom: 0,
             left: 0,
@@ -131,21 +147,10 @@ export const CurveSeparator = ({ fill = "#ffffff", height = "80px", inverted = f
                     height: height
                 }}
             >
-                {inverted ? (
-                    /* Hill Shape (Convex Fill) - Rises up in center */
-                    /* Used when we want the Next Section to "Invade" Upwards */
-                    <path
-                        d="M0,120 Q600,0 1200,120 V120 H0 Z"
-                        fill={fill}
-                    />
-                ) : (
-                    /* Valley Shape (Concave Fill) - Dips down in center */
-                    /* Used when we want the Current Section to "Bulge" Downwards */
-                    <path
-                        d="M0,0 Q600,120 1200,0 V120 H0 Z"
-                        fill={fill}
-                    />
-                )}
+                <motion.path
+                    d={pathD}
+                    fill={fill}
+                />
             </svg>
         </div>
     );

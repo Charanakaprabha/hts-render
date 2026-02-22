@@ -36,7 +36,7 @@ export const Hero = () => {
 
                 </div>
             </div>
-            <CurveSeparator fill="#5B21B6" height="80px" inverted={true} />
+            <CurveSeparator fill="var(--c-primary)" height="80px" inverted={true} />
         </section>
     );
 };

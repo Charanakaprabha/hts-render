@@ -1,58 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
     Car, HeartPulse, Pill, Microscope, Stethoscope,
     ShoppingBag, Plane, GraduationCap, Briefcase, Clapperboard,
-    ChevronDown, ChevronUp, CheckCircle2, TrendingUp
+    CheckCircle2, TrendingUp, ChevronRight
 } from 'lucide-react';
 import './Industries.css';
 
-const IndustryCard = ({ icon: Icon, number, name, tagline, description, capabilities, outcomes }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-
-    return (
-        <div id={slug} className={`ind-card ${isOpen ? 'open' : ''}`}>
-            <div className="ind-header" onClick={() => setIsOpen(!isOpen)}>
-                <div className="ind-top">
-                    <span className="ind-number">{number}</span>
-                    <Icon size={32} className="ind-icon" />
-                </div>
-                <h3 className="ind-name">{name}</h3>
-                <p className="ind-tagline">{tagline}</p>
-                <div className="ind-toggle">
-                    {isOpen ? <span className="toggle-text">Show Less <ChevronUp size={16} /></span> : <span className="toggle-text">Explore Capabilities <ChevronDown size={16} /></span>}
-                </div>
-            </div>
-
-            <div className="ind-content">
-                <p className="ind-description">{description}</p>
-
-                <div className="ind-details-grid">
-                    <div className="ind-section">
-                        <h4 className="ind-section-title"><CheckCircle2 size={18} className="text-primary" /> Our Capabilities</h4>
-                        <ul className="ind-list">
-                            {capabilities.map((cap, i) => (
-                                <li key={i}>{cap}</li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="ind-section">
-                        <h4 className="ind-section-title"><TrendingUp size={18} className="text-success" /> Business Outcomes</h4>
-                        <ul className="ind-list outcomes">
-                            {outcomes.map((out, i) => (
-                                <li key={i}>{out}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
 export const Industries = () => {
+    const [activeIndustry, setActiveIndustry] = useState(0);
+    const scrollContainerRef = useRef(null);
+
     const industries = [
         {
             icon: Car,
@@ -278,7 +236,7 @@ export const Industries = () => {
 
     return (
         <section id="industries" className="industries section-padding">
-            <div className="container">
+            <div className="container" style={{ padding: 0 }}>
                 <div className="section-header text-center">
                     <p className="section-subtitle-small">
                         — Sector-Specific Expertise. Enterprise-Grade Results. —
@@ -287,31 +245,92 @@ export const Industries = () => {
                     <p className="section-intro">
                         Halftone Systems brings deep domain knowledge and cutting-edge technology to every industry we serve. We don't offer generic solutions — we engineer precision-built digital transformations tailored to your sector's unique challenges, regulations, and growth opportunities.
                     </p>
-                    <div className="ind-badges">
-                        <span>10 Industries</span>
-                        <span className="dot">·</span>
-                        <span>Proven Impact</span>
-                        <span className="dot">·</span>
-                        <span>Transformative Technology</span>
+                </div>
+
+                <div className="industries-scroll-area" ref={scrollContainerRef}>
+                    <div className="industries-sticky-layout">
+                        {/* Fixed Left Sidebar Menu */}
+                        <div className="industries-sidebar">
+                            <ul className="ind-menu">
+                                {industries.map((ind, i) => (
+                                    <li
+                                        key={i}
+                                        className={`ind-menu-item ${activeIndustry === i ? 'active' : ''}`}
+                                        onClick={() => {
+                                            const el = document.getElementById(`ind-content-${i}`);
+                                            if (el && scrollContainerRef.current) {
+                                                // Smooth scroll the internal right container precisely to the top of the element
+                                                const containerTop = scrollContainerRef.current.getBoundingClientRect().top;
+                                                const elTop = el.getBoundingClientRect().top;
+                                                const targetY = scrollContainerRef.current.scrollTop + (elTop - containerTop);
+                                                scrollContainerRef.current.scrollTo({ top: targetY, behavior: 'smooth' });
+                                            }
+                                        }}
+                                    >
+                                        <span className="ind-menu-number">{ind.number}</span>
+                                        <span className="ind-menu-name">{ind.name}</span>
+                                        {activeIndustry === i && <ChevronRight size={16} className="ind-menu-arrow" />}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Scrolling Right Content */}
+                        <div className="industries-content">
+                            {industries.map((ind, i) => (
+                                <motion.div
+                                    id={`ind-content-${i}`}
+                                    key={i}
+                                    className="ind-scroll-card"
+                                    viewport={{ root: scrollContainerRef, margin: "-10% 0px -80% 0px", amount: 'some' }}
+                                    onViewportEnter={() => setActiveIndustry(i)}
+                                >
+                                    <div className="ind-card-header">
+                                        <div className="ind-icon-wrapper">
+                                            <ind.icon size={48} className="ind-main-icon" />
+                                        </div>
+                                        <div className="ind-card-title-group">
+                                            <h3 className="ind-card-name">{ind.name}</h3>
+                                            <p className="ind-card-tagline">{ind.tagline}</p>
+                                        </div>
+                                    </div>
+
+                                    <p className="ind-card-desc">{ind.description}</p>
+
+                                    <div className="ind-details-grid">
+                                        <div className="ind-section">
+                                            <div className="ind-section-content">
+                                                <h4 className="ind-section-title"><CheckCircle2 size={18} className="text-primary" /> Our Capabilities</h4>
+                                                <ul className="ind-list">
+                                                    {ind.capabilities.map((cap, idx) => (
+                                                        <li key={idx}><span>•</span> {cap}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div className="ind-section">
+                                            <div className="ind-section-content">
+                                                <h4 className="ind-section-title"><TrendingUp size={18} className="text-success" /> Business Outcomes</h4>
+                                                <ul className="ind-list outcomes">
+                                                    {ind.outcomes.map((out, idx) => (
+                                                        <li key={idx}><span>•</span> {out}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                <div className="industries-grid-detailed">
-                    {industries.map((ind, i) => <IndustryCard key={i} {...ind} />)}
-                </div>
-
-                <div className="section-footer text-center">
+                <div className="section-footer text-center" style={{ marginTop: '6rem' }}>
                     <h3 className="footer-heading">Your Industry. Our Expertise. Extraordinary Results.</h3>
                     <p className="footer-text">
                         No matter which sector you operate in, Halftone Systems brings the domain depth, technological excellence, and strategic partnership you need to lead your industry in the digital age.
                     </p>
-                    <div className="footer-links">
-                        <span>✦ Free Industry Consultation</span>
-                        <span className="divider">|</span>
-                        <span>Tailored Technology Roadmap</span>
-                        <span className="divider">|</span>
-                        <span>Measurable ROI from Day One ✦</span>
-                    </div>
                     <a href="#" className="btn btn-primary mt-4">Contact Halftone Systems</a>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, Bot, Link, Cloud, Shield, Smartphone, BarChart3, Settings, Globe, Megaphone, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './TechSuite.css';
 
 const TechItem = ({ icon: Icon, title, description, features }) => {
@@ -153,10 +154,18 @@ export const TechSuite = () => {
     ];
 
     return (
-        <section id="tech-suite" className="tech-suite section-padding">
+        <section id="tech-suite" className="tech-suite section-padding" style={{ position: 'relative' }}>
+            <motion.div
+                className="wwd-step-circle"
+                initial={{ backgroundColor: 'transparent', color: 'var(--c-primary)' }}
+                whileInView={{ backgroundColor: 'var(--c-primary)', color: '#ffffff' }}
+                viewport={{ once: false, margin: "2000px 0px -50% 0px" }}
+            >
+                2
+            </motion.div>
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title section-title-dark">OUR TECHNOLOGY SUITE</h2>
+                    <h3 className="section-title section-title-dark" style={{ fontSize: '2.5rem' }}>OUR TECHNOLOGY SUITE</h3>
                     <p className="section-subtitle">From enterprise platforms to cutting-edge AI — we cover every dimension of your digital journey.</p>
                 </div>
                 <div className="tech-grid">

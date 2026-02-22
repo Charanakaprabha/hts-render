@@ -1,33 +1,16 @@
 import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { motion, useScroll } from 'framer-motion';
+import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart } from 'lucide-react';
 import './WhoWeAre.css';
 import founderImage from '../../assets/nagraj.webp';
 
-// --- Three.js Background Component ---
-const WireframeGlobe = () => {
-    const sphereRef = useRef();
-
-    useFrame(({ clock, mouse }) => {
-        if (sphereRef.current) {
-            sphereRef.current.rotation.y = clock.getElapsedTime() * 0.05;
-            sphereRef.current.rotation.x = clock.getElapsedTime() * 0.02;
-
-            // Gentle response to mouse movement
-            sphereRef.current.position.x = mouse.x * 2;
-            sphereRef.current.position.y = mouse.y * 2;
-        }
+export const WhoWeAre = () => {
+    const timelineRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: timelineRef,
+        offset: ["start center", "end center"],
     });
 
-    return (
-        <Sphere ref={sphereRef} args={[1.5, 32, 32]} scale={2.5}>
-            <meshBasicMaterial color="#00D4FF" wireframe={true} transparent opacity={0.15} />
-        </Sphere>
-    );
-};
-
-export const WhoWeAre = () => {
     // Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -57,12 +40,12 @@ export const WhoWeAre = () => {
     ];
 
     const pillars = [
-        { id: '01', icon: '🏥', title: 'Healthcare AI & Smart Ambulance Systems', desc: 'AI-powered emergency response platforms and intelligent patient care applications that reduce response times and improve care outcomes through real-time data intelligence.' },
-        { id: '02', icon: '⚡', title: 'Sustainable Mobility & EV Fleet Management', desc: 'Electric fleet management platforms with real-time tracking, route optimisation, and predictive maintenance — driving the future of sustainable transportation.' },
-        { id: '03', icon: '🏭', title: 'Smart Manufacturing & Industry 4.0', desc: 'Intelligent automation, predictive analytics, and IoT-enabled tools that revolutionise operational efficiency and drive manufacturing excellence.' },
-        { id: '04', icon: '🧠', title: 'Enterprise AI & ERP Transformation', desc: 'Modernising legacy systems with SAP, cloud technologies, and AI-driven analytics — empowering enterprises with agile, scalable, future-ready infrastructure.' },
-        { id: '05', icon: '🚀', title: 'AI Solutions for MSMEs', desc: 'Democratising advanced technology through low-code/no-code AI applications — enabling small and medium businesses to compete and scale at unprecedented speeds.' },
-        { id: '06', icon: '🛒', title: 'E-commerce & Digital Platforms', desc: 'Custom AI-powered commerce solutions that elevate user experiences, optimise conversions, and accelerate growth for B2B and B2C businesses globally.' },
+        { id: '01', icon: <Activity size={32} />, title: 'Healthcare AI & Smart Ambulance Systems', desc: 'AI-powered emergency response platforms and intelligent patient care applications that reduce response times and improve care outcomes through real-time data intelligence.' },
+        { id: '02', icon: <Leaf size={32} />, title: 'Sustainable Mobility & EV Fleet Management', desc: 'Electric fleet management platforms with real-time tracking, route optimisation, and predictive maintenance — driving the future of sustainable transportation.' },
+        { id: '03', icon: <Factory size={32} />, title: 'Smart Manufacturing & Industry 4.0', desc: 'Intelligent automation, predictive analytics, and IoT-enabled tools that revolutionise operational efficiency and drive manufacturing excellence.' },
+        { id: '04', icon: <Server size={32} />, title: 'Enterprise AI & ERP Transformation', desc: 'Modernising legacy systems with SAP, cloud technologies, and AI-driven analytics — empowering enterprises with agile, scalable, future-ready infrastructure.' },
+        { id: '05', icon: <Rocket size={32} />, title: 'AI Solutions for MSMEs', desc: 'Democratising advanced technology through low-code/no-code AI applications — enabling small and medium businesses to compete and scale at unprecedented speeds.' },
+        { id: '06', icon: <ShoppingCart size={32} />, title: 'E-commerce & Digital Platforms', desc: 'Custom AI-powered commerce solutions that elevate user experiences, optimise conversions, and accelerate growth for B2B and B2C businesses globally.' },
     ];
 
 
@@ -70,12 +53,8 @@ export const WhoWeAre = () => {
     return (
         <section id="who-we-are" className="who-we-are-section">
 
-            {/* Three.js Background */}
+            {/* Background (previously Three.js) */}
             <div className="who-we-are-bg">
-                <Canvas camera={{ position: [0, 0, 5] }}>
-                    <ambientLight intensity={0.5} />
-                    <WireframeGlobe />
-                </Canvas>
             </div>
 
             <motion.div
@@ -97,17 +76,13 @@ export const WhoWeAre = () => {
                 {/* Metric Cards */}
                 <motion.div className="wa-metrics-grid" variants={itemVariants}>
                     {metrics.map((metric, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
-                            className="wa-metric-card wa-glass-card"
-                            variants={floatVariants}
-                            animate="float"
-                            style={{ animationDelay: `${idx * 0.2}s` }}
-                            whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(0, 212, 255, 0.5)" }}
+                            className={`wa-metric-card ${idx !== metrics.length - 1 ? 'wa-metric-border' : ''}`}
                         >
                             <h3 className="wa-metric-value">{metric.value}</h3>
                             <p className="wa-metric-label">{metric.label}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </motion.div>
 
@@ -149,7 +124,12 @@ export const WhoWeAre = () => {
                     <h4 className="wa-section-title">─── OUR JOURNEY</h4>
                     <h3 className="wa-section-subtitle">A Timeline of Excellence</h3>
 
-                    <div className="wa-timeline">
+                    <div className="wa-timeline" ref={timelineRef}>
+                        <div className="wa-timeline-line-bg"></div>
+                        <motion.div
+                            className="wa-timeline-line-fill"
+                            style={{ scaleY: scrollYProgress }}
+                        />
                         <div className="wa-timeline-item">
                             <div className="wa-timeline-dot"></div>
                             <div className="wa-timeline-content">
@@ -192,14 +172,17 @@ export const WhoWeAre = () => {
                             <motion.div
                                 key={pillar.id}
                                 className="wa-pillar-card"
-                                whileHover={{ y: -5, boxShadow: "0px 10px 20px rgba(0, 212, 255, 0.2)" }}
                             >
                                 <div className="wa-pillar-header">
-                                    <span className="wa-pillar-id">{pillar.id}</span>
-                                    <span className="wa-pillar-icon">{pillar.icon}</span>
+                                    <div className="wa-pillar-top">
+                                        <span className="wa-pillar-id">{pillar.id}</span>
+                                        <span className="wa-pillar-icon">{pillar.icon}</span>
+                                    </div>
+                                    <h5 className="wa-pillar-title">{pillar.title}</h5>
                                 </div>
-                                <h5 className="wa-pillar-title">{pillar.title}</h5>
-                                <p className="wa-pillar-desc">{pillar.desc}</p>
+                                <div className="wa-pillar-content">
+                                    <p className="wa-pillar-desc">{pillar.desc}</p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>

@@ -52,84 +52,96 @@ export const SuccessStories = () => {
             title: "DICK'S SPORTING GOODS",
             desc: "Delivered high-performance technology services for Dick's Sporting Goods — supporting digital commerce operations, system reliability, and technology excellence at enterprise scale.",
             tag: "Retail & E-commerce",
-            colSpan: "col-span-1 md:col-span-2 lg:col-span-2"
+            colSpan: "col-span-1 md:col-span-2 lg:col-span-2",
+            image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Smartphone size={28} className="ss-icon" />,
             title: "OHM",
             desc: "End-to-end delivery of iOS and Android mobile applications paired with a comprehensive Fleet Management system — giving OHM real-time visibility and operational control.",
             tag: "Mobility & Fleet Tech",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1519003722824-2c7003c27be6?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Ambulance size={28} className="ss-icon" />,
             title: "BHARAT CARE AMBULANCE SERVICE",
             desc: "Architected and deployed a full iOS and Android mobile application with integrated fleet management — dramatically improving emergency response coordination.",
             tag: "Healthcare & Emergency Tech",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <GraduationCap size={28} className="ss-icon" />,
             title: "CREIGHTON UNIVERSITY",
             desc: "Delivered strategic technology services to Creighton University — supporting their academic digital ecosystem, systems integration, and institutional technology goals.",
             tag: "Education & EdTech",
-            colSpan: "col-span-1 md:col-span-2 lg:col-span-2"
+            colSpan: "col-span-1 md:col-span-2 lg:col-span-2",
+            image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <TestTube2 size={28} className="ss-icon" />,
             title: "VIRCHOW BIOTECH PRIVATE LIMITED",
             desc: "Provided specialised technology services to Virchow Biotech — enabling them to optimise operations, enhance compliance workflows, and accelerate digital transformation.",
             tag: "Healthcare & Pharma",
-            colSpan: "col-span-1 md:col-span-2 lg:col-span-1"
+            colSpan: "col-span-1 md:col-span-2 lg:col-span-1",
+            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Network size={28} className="ss-icon" />,
             title: "RAGHAVA LIFE SCIENCES",
             desc: "Designed and deployed a robust enterprise networking architecture — ensuring secure, high-availability connectivity across critical laboratory environments.",
             tag: "Life Sciences & Networking",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Building2 size={28} className="ss-icon" />,
             title: "TFMC",
             desc: "Delivered comprehensive technology services to the Telangana Facility Management Council — supporting their digital operations and governance technology needs.",
             tag: "Government & Public Sector",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Cpu size={28} className="ss-icon" />,
             title: "PROMEA®",
             desc: "Provided end-to-end technology services to Promea — helping them build scalable digital infrastructure and accelerate their path from vision to high-growth operation.",
             tag: "Technology Services",
-            colSpan: "col-span-1 md:col-span-2 lg:col-span-2"
+            colSpan: "col-span-1 md:col-span-2 lg:col-span-2",
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Wheat size={28} className="ss-icon" />,
             title: "MITHUNA FOODS",
             desc: "Supported Mithuna Foods with technology services enabling smarter supply chain management, digital commerce capabilities, and operational efficiency.",
             tag: "Food & Agri Trade",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1495539361138-c64dcbed4ff9?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Zap size={28} className="ss-icon" />,
             title: "WPP ENERGY",
             desc: "Partnered with WPP Energy on their technology journey — supporting their mission to deliver innovative, sustainable energy production solutions at a global scale.",
             tag: "Energy & Utilities",
-            colSpan: "col-span-1"
+            colSpan: "col-span-1",
+            image: "https://images.unsplash.com/photo-1466611653911-9c617eb0d39e?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Landmark size={28} className="ss-icon" />,
             title: "ROYAL ORBIT HOLDING GROUP",
             desc: "Delivered technology services to Royal Orbit Holding Group — enabling cross-portfolio digital integration and strategic technology advisory.",
             tag: "Finance & Holdings",
-            colSpan: "col-span-1 md:col-span-2 lg:col-span-1"
+            colSpan: "col-span-1 md:col-span-2 lg:col-span-1",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
         },
         {
             icon: <Globe2 size={28} className="ss-icon" />,
             title: "PX NORDIC · DARIAN · CHEMIE-TECH",
             desc: "Extended our global footprint to Nordic, Middle Eastern, and European markets — providing specialised technology services across IT, trading, and specialty chemicals.",
             tag: "Global Technology Services",
-            colSpan: "col-span-1 md:col-span-3 lg:col-span-3"
+            colSpan: "col-span-1 md:col-span-3 lg:col-span-3",
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
         },
     ];
 
@@ -157,22 +169,25 @@ export const SuccessStories = () => {
                         >
                             <motion.div
                                 className="ss-glass-card"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             >
-                                <div className="ss-card-header">
-                                    <div className="ss-icon-wrapper">
-                                        {story.icon}
+                                <img src={story.image} alt={story.title} className="ss-bg-image" />
+                                <div className="ss-card-base-overlay"></div>
+                                <div className="ss-card-overlay"></div>
+                                <div className="ss-card-content">
+                                    <div className="ss-card-header">
+                                        <div className="ss-icon-wrapper">
+                                            {story.icon}
+                                        </div>
+                                        <h5 className="ss-card-title">{story.title}</h5>
                                     </div>
-                                    <h5 className="ss-card-title">{story.title}</h5>
-                                </div>
 
-                                <p className="ss-card-desc">{story.desc}</p>
+                                    <p className="ss-card-desc">{story.desc}</p>
 
-                                <div className="ss-card-footer">
-                                    <div className="ss-glowing-pill">
-                                        <div className="ss-pill-dot"></div>
-                                        {story.tag}
+                                    <div className="ss-card-footer">
+                                        <div className="ss-glowing-pill">
+                                            <div className="ss-pill-dot"></div>
+                                            {story.tag}
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

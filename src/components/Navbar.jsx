@@ -49,17 +49,29 @@ export const Navbar = () => {
         {
             name: 'Who We Are',
             href: '#who-we-are',
-            dropdown: []
+            dropdown: [
+                { name: 'Our History', href: '#who-we-are' },
+                { name: 'Our Journey', href: '#who-we-are' },
+                { name: 'Six Pillars', href: '#who-we-are' }
+            ]
         },
         {
             name: 'Success Stories',
             href: '#success-stories',
-            dropdown: []
+            dropdown: [
+                { name: 'Case Studies', href: '#success-stories' },
+                { name: 'Client Testimonials', href: '#success-stories' },
+                { name: 'Impact Reports', href: '#success-stories' }
+            ]
         },
         {
             name: 'Careers',
             href: '#careers',
-            dropdown: []
+            dropdown: [
+                { name: 'Open Positions', href: '#careers' },
+                { name: 'Our Culture', href: '#careers' },
+                { name: 'Life at Halftone', href: '#careers' }
+            ]
         },
     ];
 

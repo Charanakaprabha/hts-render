@@ -39,6 +39,11 @@
     /* Extremely subtle flat shadow just to separate from background */
 }
 
+.location-card.glass-card {
+    background: transparent;
+    box-shadow: none;
+}
+
 /* Contact Info Column */
 .info-heading {
     font-size: 0.9rem;

@@ -1,7 +1,7 @@
 .who-we-are-section {
     position: relative;
-    background-color: #0A192F;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #1a1a1a;
     padding: 100px 0;
     overflow: hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -31,11 +31,11 @@
 
 /* General Typography & Accents */
 .wa-accent {
-    color: #00D4FF;
+    color: var(--c-primary);
 }
 
 .wa-section-title {
-    color: #00D4FF;
+    color: var(--c-primary);
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -45,17 +45,19 @@
 
 .wa-section-subtitle {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-top: 0;
     margin-bottom: 3rem;
     line-height: 1.2;
+    color: #111827;
 }
 
 .wa-glass-card {
-    background: #0A192F;
-    border: 1px solid rgba(0, 212, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -71,11 +73,12 @@
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: #111827;
 }
 
 .wa-description {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #4b5563;
     line-height: 1.6;
 }
 
@@ -95,10 +98,14 @@
     padding: 2.5rem 1rem;
 }
 
+.wa-metric-border {
+    border-right: 1px solid #e5e7eb;
+}
+
 .wa-metric-value {
     font-size: 3rem;
     font-weight: 800;
-    color: #00D4FF;
+    color: var(--c-primary);
     margin: 0 0 0.5rem 0;
 }
 
@@ -106,14 +113,14 @@
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.6);
+    color: #6b7280;
     margin: 0;
 }
 
 /* Divider */
 .wa-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
     margin: 4rem 0;
 }
 
@@ -127,7 +134,7 @@
 .wa-founder-text {
     flex: 1.2;
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #4b5563;
     line-height: 1.7;
 }
 
@@ -137,7 +144,7 @@
 
 .wa-founder-quote-box {
     flex: 1;
-    border-left: 4px solid #00D4FF;
+    background: #f9fafb;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,14 +160,14 @@
     border-radius: 50%;
     /* Make it a circle */
     overflow: hidden;
-    border: 3px solid rgba(0, 212, 255, 0.5);
+    border: 3px solid #e5e7eb;
     /* Blue glowing border */
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     /* Soft glow behind image */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background: #f3f4f6;
     /* Fallback */
 }
 
@@ -175,22 +182,23 @@
 
 .wa-founder-name {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0;
-    color: #FFFFFF;
+    color: #111827;
 }
 
 .wa-founder-title {
     font-size: 0.85rem;
-    color: #00D4FF;
+    color: var(--c-primary);
     margin: 0.5rem 0 1.5rem;
     letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 .wa-quote {
     font-size: 1.15rem;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.9);
+    color: #4b5563;
     line-height: 1.6;
     margin: 0;
 }
@@ -198,21 +206,21 @@
 .wa-industries-list {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #e5e7eb;
     text-align: center;
 }
 
 .wa-list-label {
     display: block;
     font-size: 0.9rem;
-    color: #00D4FF;
+    color: var(--c-primary);
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .wa-list-items {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #4b5563;
     line-height: 1.8;
 }
 
@@ -223,20 +231,31 @@
     margin: 0 auto;
 }
 
-.wa-timeline::before {
-    content: '';
+.wa-timeline-line-bg {
     position: absolute;
     top: 0;
     left: 20px;
     height: 100%;
     width: 2px;
-    background: rgba(0, 212, 255, 0.2);
+    background: #e5e7eb;
+}
+
+.wa-timeline-line-fill {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    bottom: 0;
+    width: 2px;
+    background: var(--c-primary);
+    transform-origin: top;
+    z-index: 1;
 }
 
 .wa-timeline-item {
     position: relative;
     padding-left: 60px;
     margin-bottom: 3rem;
+    z-index: 2;
 }
 
 .wa-timeline-dot {
@@ -246,19 +265,21 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #00D4FF;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    background: var(--c-white);
+    border: 3px solid var(--c-primary);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
 }
 
 .wa-timeline-content h5 {
     font-size: 1.25rem;
-    color: #00D4FF;
+    color: #111827;
+    font-weight: 800;
     margin: 0 0 0.5rem 0;
 }
 
 .wa-timeline-content p {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #4b5563;
     line-height: 1.6;
     margin: 0;
 }
@@ -266,7 +287,7 @@
 /* Vision Pillars Grid */
 .wa-vision-desc {
     font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #4b5563;
     max-width: 600px;
     margin-top: -1.5rem;
     margin-bottom: 3rem;
@@ -279,44 +300,66 @@
 }
 
 .wa-pillar-card {
-    padding: 2.5rem;
-    background: transparent;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
     transition: all 0.3s ease;
+    padding: 0;
+    /* Remove padding as we will structure it like ind-card */
 }
 
 .wa-pillar-card:hover {
-    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--c-primary);
 }
 
 .wa-pillar-header {
+    padding: 2rem;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wa-pillar-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .wa-pillar-id {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: rgba(0, 212, 255, 0.3);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #e5e7eb;
+    line-height: 1;
 }
 
 .wa-pillar-icon {
     font-size: 2rem;
+    color: var(--c-primary);
 }
 
 .wa-pillar-title {
     font-size: 1.4rem;
     font-weight: 700;
-    margin: 0 0 1rem 0;
-    color: #FFFFFF;
+    margin: 0;
+    color: #111827;
+    text-transform: uppercase;
+}
+
+.wa-pillar-content {
+    padding: 2rem;
 }
 
 .wa-pillar-desc {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #4b5563;
     line-height: 1.6;
     margin: 0;
 }
@@ -402,6 +445,11 @@
 
     .wa-metrics-grid {
         flex-direction: column;
+    }
+
+    .wa-metric-border {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
     }
 
     .wa-timeline::before {

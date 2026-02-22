@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Users, Layers } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './SpecializedServices.css';
 
 const SpecCard = ({ icon: Icon, title, subtitle, features }) => {
@@ -61,10 +62,18 @@ export const SpecializedServices = () => {
     ];
 
     return (
-        <section id="specialized-services" className="specialized section-padding bg-dark-alt">
+        <section id="specialized-services" className="specialized section-padding bg-dark-alt" style={{ position: 'relative' }}>
+            <motion.div
+                className="wwd-step-circle"
+                initial={{ backgroundColor: 'transparent', color: 'var(--c-primary)' }}
+                whileInView={{ backgroundColor: 'var(--c-primary)', color: '#ffffff' }}
+                viewport={{ once: false, margin: "2000px 0px -50% 0px" }}
+            >
+                3
+            </motion.div>
             <div className="container">
                 <div className="section-header text-center reveal">
-                    <h2 className="section-title section-title-dark">SPECIALIZED SERVICES</h2>
+                    <h3 className="section-title section-title-dark" style={{ fontSize: '2.5rem' }}>SPECIALIZED SERVICES</h3>
                     <p className="section-subtitle">Expert advisory, talent, and product development — your complete technology partner.</p>
                 </div>
                 <div className="spec-grid reveal-group">

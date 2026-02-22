@@ -29,7 +29,7 @@ export const Impact = () => {
         <section className="impact section-padding bg-dark">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title">OUR IMPACT IN NUMBERS</h2>
+                    <h2 className="section-title section-title-light">OUR IMPACT IN NUMBERS</h2>
                     <p className="section-subtitle">Real results delivered for real businesses — proven across industries, geographies, and scales.</p>
                 </div>
                 <div className="impact-grid">
