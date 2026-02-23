@@ -9,6 +9,8 @@ import { SuccessStories } from './components/SuccessStories';
 import { Partnerships } from './components/Partnerships';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Insights } from './components/Insights';
+import Chatbot from './components/Chatbot';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 function App() {
@@ -27,10 +29,12 @@ function App() {
       <Impact />
       <Industries />
       <WhoWeAre />
+      <Insights />
       <SuccessStories />
       <Partnerships />
       <Contact />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
