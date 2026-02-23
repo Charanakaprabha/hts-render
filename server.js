@@ -6,14 +6,17 @@ import https from 'https';
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Halftone AI Backend is running!');
-});
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Stable backend active' });
@@ -91,6 +94,10 @@ app.post('/api/chat', async (req, res) => {
             details: error.message
         });
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {
